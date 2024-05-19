@@ -44,10 +44,8 @@ def find_text(target_text, confidence_threshold=60):
 	custom_config = r'--oem 3 --psm 6'
 
 	text_detected = tess.image_to_string(img, config=custom_config)
-	print("debug: Detected Text:", text_detected)
 
 	data = tess.image_to_data(img, output_type=tess.Output.DICT, config=custom_config)
-	print(data)
 
 	highest_confidence = -1
 	best_coords = None
@@ -65,7 +63,6 @@ def find_text(target_text, confidence_threshold=60):
 
 def capture_active_window():
 	active_window = gw.getActiveWindow()
-	print(active_window)
 
 	if not active_window:
 		raise Exception("No active window found.")

@@ -7,6 +7,8 @@ from time import sleep
 import pygetwindow as gw
 from mss import mss
 
+tess.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
 def main():
     sleep(1)
     if clicktext("Search"):

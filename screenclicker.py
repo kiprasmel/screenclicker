@@ -10,11 +10,24 @@ from mss import mss
 tess.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def main():
-    sleep(1)
-    if clicktext("Search"):
-	    print("text found and clicked")
-    else:
-	    print("text not found")
+	sleep(1)
+
+	found = clicktext("Search")
+
+	if not found:
+		print("text not found")
+		return
+
+	write("cool stuff")
+	press("enter")
+
+# --- #
+
+def press(key):
+	pag.press(key)
+
+def write(text):
+	pag.write(text)
 
 def clicktext(text):
 	coords = find_text(text)
